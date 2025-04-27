@@ -1,0 +1,34 @@
+#
+# https://artifacthub.io/packages/helm/bitnami/mlflow
+#
+tracking:
+  service:
+    type: ClusterIP
+
+run:
+  enabled: false
+
+minio:
+  enabled: false
+
+externalS3:
+  host: "risingwave-minio.risingwave.svc.cluster.local"
+  port: 9000
+  useCredentialsInSecret: true
+  existingSecret: "mlflow-minio-secret"
+  existingSecretAccessKeyIDKey: "AccessKeyID"
+  existingSecretKeySecretKey: "SecretKey"
+  protocol: "http"
+  bucket: "mlflow-d971"
+  serveArtifacts: true
+
+postgresql:
+  enabled: false
+
+externalDatabase:
+  dialectDriver: "postgresql"
+  host: "risingwave-postgresql.risingwave.svc.cluster.local"
+  port: 5432
+  user: mlflow
+  database: mlflow
+  password: mlflow
