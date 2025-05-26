@@ -1,4 +1,10 @@
 ########################################################
+# Kubernetes Setup
+########################################################
+
+
+
+########################################################
 # ML engineering operations
 ########################################################
 
@@ -27,9 +33,9 @@ format:
 # ML platfrom operations
 ########################################################
 
-create-cluster:
-	cd rwml-k8s-workloads && \
-	KIND_EXPERIMENTAL_DOCKER_NETWORK=rwml-34fa-network kind create cluster --config ./kind-with-portmapping.yaml
+# Start Cluster
+create-dev-cluster:
+	cd deployments/dev/kind/ && chmod +x ./create_cluster.sh &&  ./create_cluster.sh
 
 delete-cluster:
 	kind delete cluster --name rwml-34fa
