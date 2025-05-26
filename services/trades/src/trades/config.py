@@ -25,4 +25,3 @@ class Settings(BaseSettings):
 
 
 config = Settings()
-# print(settings.model_dump())
