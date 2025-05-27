@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import json
 
 
 class Settings(BaseSettings):
@@ -29,7 +30,7 @@ class Settings(BaseSettings):
         config = Setting.from_yaml("path/to/yaml/file/with/technial_indicators/config.yaml")
 
         """
-        raise NotImplementedError('Homework: implement this method')
+        return json.load(fp=path_to_yaml)
 
 
 config = Settings()

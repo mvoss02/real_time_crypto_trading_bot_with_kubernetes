@@ -1,10 +1,4 @@
 ########################################################
-# Kubernetes Setup
-########################################################
-
-
-
-########################################################
 # ML engineering operations
 ########################################################
 
@@ -19,7 +13,7 @@ build:
 # Deploy a service to the kind cluster
 deploy: build
 	kind load docker-image $(service):dev --name rwml-34fa
-	kubectl apply -f deployments/$(service).yaml
+	kubectl apply -f deployments/dev/$(service)/$(service).yaml
 
 # Linting
 lint:

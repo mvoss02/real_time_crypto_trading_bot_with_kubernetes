@@ -12,9 +12,6 @@ from trades.trade import Trade
 def run(
     kafka_broker_address: str,
     kafka_topic_name: str,
-    # Old way to say an object if of this type or that type
-    # kraken_api: Union[KrakenWebsocketAPI, KrakenRestAPI],
-    # New way to say an object if of this type or that type
     kraken_api: KrakenWebsocketAPI | KrakenRestAPI,
     kafka_topic_partitions: Optional[int] = 1,
 ):
