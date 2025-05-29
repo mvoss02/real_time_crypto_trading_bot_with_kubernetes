@@ -54,24 +54,32 @@ if __name__ == '__main__':
     if config.live_or_historical == 'live':
         logger.info('Using live data from Kraken API')
         api = KrakenWebsocketAPI(product_ids=config.product_ids)
+        
+        run(
+            kafka_broker_address=config.kafka_broker_address,
+            kafka_topic_name=config.kafka_topic_name,
+            kraken_api=api,
+            # kafka_topic_partitions=len(config.kafka_topic_partitions),
+        )
 
     elif config.live_or_historical == 'historical':
         logger.info('Using historical data from Kraken API')
         
         # Historical backfill of trades from kraken rest API
         for p_id in config.product_ids:
+            logger.info(f'Getting historical data for: {p_id}')
             api = KrakenRestAPI(
                 product_id=p_id,
                 last_n_days=config.last_n_days,
+            )
+            
+            run(
+                kafka_broker_address=config.kafka_broker_address,
+                kafka_topic_name=config.kafka_topic_name,
+                kraken_api=api,
+                # kafka_topic_partitions=len(config.kafka_topic_partitions),
             )
     else:
         raise ValueError(
             'Invalid value for live_or_historical. Must be "live" or "historical".'
         )
-
-    run(
-        kafka_broker_address=config.kafka_broker_address,
-        kafka_topic_name=config.kafka_topic_name,
-        kraken_api=api,
-        # kafka_topic_partitions=len(config.kafka_topic_partitions),
-    )
