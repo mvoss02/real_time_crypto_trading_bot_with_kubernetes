@@ -228,18 +228,12 @@ dependencies = [
     { name = "websocket-client" },
 ]
 
-[package.optional-dependencies]
-talib = [
-    { name = "ta-lib" },
-]
-
 [package.metadata]
 requires-dist = [
     { name = "candles", editable = "services/candles" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "quixstreams", specifier = ">=3.13.1" },
     { name = "requests", specifier = ">=2.32.3" },
-    { name = "ta-lib", marker = "extra == 'talib'", specifier = ">=0.6.3" },
     { name = "technical-indicators", editable = "services/technical_indicators" },
     { name = "trades", editable = "services/trades" },
     { name = "websocket-client", specifier = ">=1.8.0" },

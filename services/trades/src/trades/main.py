@@ -57,10 +57,13 @@ if __name__ == '__main__':
 
     elif config.live_or_historical == 'historical':
         logger.info('Using historical data from Kraken API')
-        api = KrakenRestAPI(
-            product_id=config.product_ids[0],
-            last_n_days=config.last_n_days,
-        )
+        
+        # Historical backfill of trades from kraken rest API
+        for p_id in config.product_ids:
+            api = KrakenRestAPI(
+                product_id=p_id,
+                last_n_days=config.last_n_days,
+            )
     else:
         raise ValueError(
             'Invalid value for live_or_historical. Must be "live" or "historical".'
