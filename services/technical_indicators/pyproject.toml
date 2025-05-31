@@ -7,9 +7,7 @@ authors = [
     { name = "mvoss02", email = "m_l_voss@web.de" }
 ]
 requires-python = ">=3.12"
-dependencies = [
-    "ta-lib>=0.6.3",
-]
+dependencies = []
 
 [build-system]
 requires = ["hatchling"]

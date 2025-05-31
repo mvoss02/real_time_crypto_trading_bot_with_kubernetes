@@ -1,3 +1,8 @@
+-- Connect to db via terminal
+/*
+psql -h localhost -p 4567 -d dev -U root
+*/
+
 CREATE TABLE technical_indicators (
     pair VARCHAR,
     open FLOAT,
