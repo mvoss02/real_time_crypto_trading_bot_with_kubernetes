@@ -1,9 +1,17 @@
 #
 # https://artifacthub.io/packages/helm/bitnami/mlflow
+# https://github.com/bitnami/charts/blob/main/bitnami/mlflow/values.yaml
+#
 #
 tracking:
   service:
     type: ClusterIP
+
+  # temporary user / pass here, should be in the secret
+  auth:
+    enabled: true
+    username: user
+    password: "6440921D-2493-42AA-BE40-428CD753D81D"
 
 run:
   enabled: false

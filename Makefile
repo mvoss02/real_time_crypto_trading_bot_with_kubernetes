@@ -12,3 +12,8 @@ deploy:
 
 lint:
 	ruff check . --fix
+
+
+# (Re-)Start Cluster
+create-dev-cluster:
+	cd deployments/dev/kind/ && chmod +x ./create_cluster.sh &&  ./create_cluster.sh

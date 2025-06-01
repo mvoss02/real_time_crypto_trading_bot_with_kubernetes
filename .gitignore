@@ -224,3 +224,6 @@ anthropic.env
 
 #
 kubeconfig
+
+#
+*-secret.yaml
