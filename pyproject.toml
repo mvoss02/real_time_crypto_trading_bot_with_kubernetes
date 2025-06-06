@@ -7,8 +7,12 @@ requires-python = ">=3.12"
 dependencies = [
     "candles",
     "loguru>=0.7.3",
+    "news",
+    "news-sentiment",
+    "predictor",
     "quixstreams>=3.13.1",
     "requests>=2.32.3",
+    "risingwave-py",
     "technical-indicators",
     "trades",
     "websocket-client>=1.8.0",
